@@ -1,0 +1,67 @@
+<html>
+<head>
+<title>Tweet.cpp</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #808080;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #bbb529;}
+.s3 { color: #6a8759;}
+.s4 { color: #6897bb;}
+.s5 { color: #cc7832;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Tweet.cpp</font>
+</center></td></tr></table>
+<pre><span class="s0">//</span>
+<span class="s0">// Created by Sean Grady on 2/8/2022.</span>
+<span class="s0">//</span>
+
+<span class="s2">#include </span><span class="s3">&quot;Tweet.h&quot;</span>
+
+<span class="s1">Tweet::Tweet(){</span>
+    <span class="s1">sentAnalysis = -</span><span class="s4">1</span><span class="s5">;</span>
+    <span class="s1">testing = </span><span class="s5">false;</span>
+
+
+<span class="s1">}</span>
+<span class="s0">//function to break down each tweet into seperate words</span>
+<span class="s5">void </span><span class="s1">Tweet::createWords(words allWords) {</span>
+
+    <span class="s5">int </span><span class="s1">lastChar = </span><span class="s4">0</span><span class="s5">;</span><span class="s0">//tracks first character in word</span>
+    <span class="s5">int </span><span class="s1">firstChar = </span><span class="s4">0</span><span class="s5">;</span><span class="s0">//tracks second letter in a word</span>
+    <span class="s5">for</span><span class="s1">(</span><span class="s5">int </span><span class="s1">i = </span><span class="s4">0</span><span class="s5">; </span><span class="s1">i &lt; entireTweet.getLength()</span><span class="s5">; </span><span class="s1">i++){</span>
+        <span class="s5">if</span><span class="s1">(ispunct(entireTweet.getChar(i))) </span><span class="s5">continue;</span>
+        <span class="s5">if</span><span class="s1">(entireTweet.getChar(i) &gt;= </span><span class="s3">'A' </span><span class="s1">&amp;&amp; entireTweet.getChar(i) &lt;= </span><span class="s3">'Z'</span><span class="s1">)</span><span class="s5">;</span>
+        <span class="s5">if</span><span class="s1">(entireTweet.getChar(i) == </span><span class="s4">32</span><span class="s1">) {</span>
+            <span class="s1">firstChar = lastChar + </span><span class="s4">1</span><span class="s5">;</span>
+            <span class="s1">lastChar = i</span><span class="s5">;</span>
+
+        <span class="s1">}</span>
+
+        <span class="s5">if</span><span class="s1">(lastChar == i){</span>
+            <span class="s0">//buffer to hold all characters in the tweet</span>
+            <span class="s5">char </span><span class="s1">buffer[</span><span class="s4">500</span><span class="s1">]</span><span class="s5">;</span>
+            <span class="s0">//iterates through each word using trackers</span>
+            <span class="s5">for</span><span class="s1">(</span><span class="s5">int </span><span class="s1">j = firstChar</span><span class="s5">, </span><span class="s1">k = </span><span class="s4">0</span><span class="s5">; </span><span class="s1">j &lt; lastChar</span><span class="s5">; </span><span class="s1">j++</span><span class="s5">, </span><span class="s1">k++){</span>
+               <span class="s1">buffer[k] = entireTweet.getChar(j)</span><span class="s5">;</span>
+<span class="s0">//               cout &lt;&lt; buffer[k];</span>
+            <span class="s1">}</span>
+            <span class="s0">//creates new DSString of the word</span>
+<span class="s0">//            cout &lt;&lt; buffer &lt;&lt; &quot; &quot;;</span>
+            <span class="s1">DSString newWord(buffer)</span><span class="s5">;</span>
+            <span class="s0">//adds the word to the tweet set</span>
+            <span class="s1">allWords.addWord(newWord</span><span class="s5">, </span><span class="s1">sent)</span><span class="s5">;</span>
+            <span class="s0">//resets the buffer array</span>
+            <span class="s1">memset(buffer</span><span class="s5">, </span><span class="s4">0</span><span class="s5">, sizeof</span><span class="s1">(buffer))</span><span class="s5">;</span>
+        <span class="s1">}</span>
+    <span class="s1">}</span>
+<span class="s0">//    cout &lt;&lt; endl;</span>
+<span class="s0">//    cout &lt;&lt; &quot;New Tweet&quot; &lt;&lt; endl;</span>
+<span class="s1">}</span></pre>
+</body>
+</html>

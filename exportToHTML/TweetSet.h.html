@@ -1,0 +1,58 @@
+<html>
+<head>
+<title>TweetSet.h</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #808080;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #bbb529;}
+.s3 { color: #6a8759;}
+.s4 { color: #cc7832;}
+.s5 { color: #6897bb;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+TweetSet.h</font>
+</center></td></tr></table>
+<pre><span class="s0">//</span>
+<span class="s0">// Created by Sean Grady on 2/9/2022.</span>
+<span class="s0">//</span>
+
+<span class="s2">#ifndef </span><span class="s1">PA01_SENTIMENT_TWEETSET_H</span>
+<span class="s2">#define </span><span class="s1">PA01_SENTIMENT_TWEETSET_H</span>
+<span class="s2">#include </span><span class="s3">&lt;iostream&gt;</span>
+<span class="s2">#include </span><span class="s3">&lt;fstream&gt;</span>
+<span class="s2">#include </span><span class="s3">&lt;iostream&gt;</span>
+<span class="s2">#include </span><span class="s3">&lt;vector&gt;</span>
+<span class="s2">#include </span><span class="s3">&quot;Tweet.h&quot;</span>
+<span class="s2">#include </span><span class="s3">&quot;DSString.h&quot;</span>
+<span class="s4">using namespace </span><span class="s1">std</span><span class="s4">;</span>
+<span class="s4">class </span><span class="s1">TweetSet {</span>
+<span class="s4">private</span><span class="s1">:</span>
+
+
+
+    <span class="s1">vector&lt;Tweet&gt; testingTweet</span><span class="s4">;</span>
+    <span class="s1">vector&lt;Tweet&gt; trainingTweet</span><span class="s4">;</span>
+    <span class="s1">vector&lt;Tweet&gt; finalTweet</span><span class="s4">;</span>
+
+    <span class="s4">int </span><span class="s1">totalCorrect = </span><span class="s5">0</span><span class="s4">;</span>
+
+<span class="s4">public</span><span class="s1">:</span>
+    <span class="s1">words allWords</span><span class="s4">;</span>
+    <span class="s0">//passing in tweets with no IDS</span>
+    <span class="s1">TweetSet(</span><span class="s4">int </span><span class="s1">argc</span><span class="s4">, char </span><span class="s1">**argv)</span><span class="s4">;</span>
+    <span class="s0">//finds tweet by searching by ID</span>
+    <span class="s4">bool </span><span class="s1">findTweet(</span><span class="s4">int</span><span class="s1">)</span><span class="s4">;</span>
+    <span class="s4">void </span><span class="s1">analyze()</span><span class="s4">;</span>
+
+<span class="s1">}</span><span class="s4">;</span>
+
+
+<span class="s2">#endif </span><span class="s0">//PA01_SENTIMENT_TWEETSET_H</span>
+</pre>
+</body>
+</html>

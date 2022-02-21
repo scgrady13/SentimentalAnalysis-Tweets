@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="pa01_sentiment"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\data\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/cygdrive/c/Users/12013/Documents/GitHub/22s-2341-scgrady13/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make.exe -j12 -f &quot;/cygdrive/c/Users/12013/Documents/GitHub/22s-2341-scgrady13/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make.exe -j12 -f &quot;/cygdrive/c/Users/12013/Documents/GitHub/22s-2341-scgrady13/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make.exe -j12 -f &quot;/cygdrive/c/Users/12013/Documents/GitHub/22s-2341-scgrady13/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make.exe -j12 -f &quot;/cygdrive/c/Users/12013/Documents/GitHub/22s-2341-scgrady13/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/cygdrive/c/Users/12013/Documents/GitHub/22s-2341-scgrady13/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make.exe -j12 -f &quot;/cygdrive/c/Users/12013/Documents/GitHub/22s-2341-scgrady13/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make.exe -j12 -f &quot;/cygdrive/c/Users/12013/Documents/GitHub/22s-2341-scgrady13/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make.exe -j12 -f &quot;/cygdrive/c/Users/12013/Documents/GitHub/22s-2341-scgrady13/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make.exe -j12 -f &quot;/cygdrive/c/Users/12013/Documents/GitHub/22s-2341-scgrady13/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/cygdrive/c/Users/12013/Documents/GitHub/22s-2341-scgrady13/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make.exe -j12 -f &quot;/cygdrive/c/Users/12013/Documents/GitHub/22s-2341-scgrady13/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make.exe -j12 -f &quot;/cygdrive/c/Users/12013/Documents/GitHub/22s-2341-scgrady13/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make.exe -j12 -f &quot;/cygdrive/c/Users/12013/Documents/GitHub/22s-2341-scgrady13/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make.exe -j12 -f &quot;/cygdrive/c/Users/12013/Documents/GitHub/22s-2341-scgrady13/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="pa01_sentiment">
+				<Option output="/cygdrive/c/Users/12013/Documents/GitHub/22s-2341-scgrady13/cmake-build-debug/pa01_sentiment.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/cygdrive/c/Users/12013/Documents/GitHub/22s-2341-scgrady13/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/10/include/c++"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/10/include/c++/x86_64-pc-cygwin"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/10/include/c++/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/10/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/10/../../../../lib/../include/w32api"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make.exe -j12 -f &quot;/cygdrive/c/Users/12013/Documents/GitHub/22s-2341-scgrady13/cmake-build-debug/Makefile&quot;  VERBOSE=1 pa01_sentiment"/>
+					<CompileFile command="/usr/bin/make.exe -j12 -f &quot;/cygdrive/c/Users/12013/Documents/GitHub/22s-2341-scgrady13/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make.exe -j12 -f &quot;/cygdrive/c/Users/12013/Documents/GitHub/22s-2341-scgrady13/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make.exe -j12 -f &quot;/cygdrive/c/Users/12013/Documents/GitHub/22s-2341-scgrady13/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="pa01_sentiment/fast">
+				<Option output="/cygdrive/c/Users/12013/Documents/GitHub/22s-2341-scgrady13/cmake-build-debug/pa01_sentiment.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/cygdrive/c/Users/12013/Documents/GitHub/22s-2341-scgrady13/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/10/include/c++"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/10/include/c++/x86_64-pc-cygwin"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/10/include/c++/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/10/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/10/../../../../lib/../include/w32api"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make.exe -j12 -f &quot;/cygdrive/c/Users/12013/Documents/GitHub/22s-2341-scgrady13/cmake-build-debug/Makefile&quot;  VERBOSE=1 pa01_sentiment/fast"/>
+					<CompileFile command="/usr/bin/make.exe -j12 -f &quot;/cygdrive/c/Users/12013/Documents/GitHub/22s-2341-scgrady13/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make.exe -j12 -f &quot;/cygdrive/c/Users/12013/Documents/GitHub/22s-2341-scgrady13/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make.exe -j12 -f &quot;/cygdrive/c/Users/12013/Documents/GitHub/22s-2341-scgrady13/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/cygdrive/c/Users/12013/Documents/GitHub/22s-2341-scgrady13/DSString.cpp">
+			<Option target="pa01_sentiment"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/12013/Documents/GitHub/22s-2341-scgrady13/DSString.h">
+			<Option target="pa01_sentiment"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/12013/Documents/GitHub/22s-2341-scgrady13/Tweet.cpp">
+			<Option target="pa01_sentiment"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/12013/Documents/GitHub/22s-2341-scgrady13/Tweet.h">
+			<Option target="pa01_sentiment"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/12013/Documents/GitHub/22s-2341-scgrady13/TweetSet.cpp">
+			<Option target="pa01_sentiment"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/12013/Documents/GitHub/22s-2341-scgrady13/TweetSet.h">
+			<Option target="pa01_sentiment"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/12013/Documents/GitHub/22s-2341-scgrady13/Words.h">
+			<Option target="pa01_sentiment"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/12013/Documents/GitHub/22s-2341-scgrady13/catch.hpp">
+			<Option target="pa01_sentiment"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/12013/Documents/GitHub/22s-2341-scgrady13/main.cpp">
+			<Option target="pa01_sentiment"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/12013/Documents/GitHub/22s-2341-scgrady13/test.cpp">
+			<Option target="pa01_sentiment"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/12013/Documents/GitHub/22s-2341-scgrady13/words.cpp">
+			<Option target="pa01_sentiment"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/12013/Documents/GitHub/22s-2341-scgrady13/words.h">
+			<Option target="pa01_sentiment"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/12013/Documents/GitHub/22s-2341-scgrady13/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/12013/Documents/GitHub/22s-2341-scgrady13/data/test_dataset_10k.csv">
+			<Option virtualFolder="CMake Files\data\"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/12013/Documents/GitHub/22s-2341-scgrady13/data/test_dataset_sentiment_10k.csv">
+			<Option virtualFolder="CMake Files\data\"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/12013/Documents/GitHub/22s-2341-scgrady13/data/train_dataset_20k.csv">
+			<Option virtualFolder="CMake Files\data\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

@@ -1,0 +1,64 @@
+<html>
+<head>
+<title>Tweet.h</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #808080;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #bbb529;}
+.s3 { color: #6a8759;}
+.s4 { color: #cc7832;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Tweet.h</font>
+</center></td></tr></table>
+<pre><span class="s0">//</span>
+<span class="s0">// Created by Sean Grady on 2/8/2022.</span>
+<span class="s0">//</span>
+
+<span class="s2">#ifndef </span><span class="s1">PA01_SENTIMENT_TWEET_H</span>
+<span class="s2">#define </span><span class="s1">PA01_SENTIMENT_TWEET_H</span>
+
+<span class="s2">#include </span><span class="s3">&lt;iostream&gt;</span>
+<span class="s2">#include </span><span class="s3">&lt;fstream&gt;</span>
+<span class="s2">#include </span><span class="s3">&lt;iostream&gt;</span>
+<span class="s2">#include </span><span class="s3">&quot;DSString.h&quot;</span>
+<span class="s2">#include </span><span class="s3">&quot;words.h&quot;</span>
+<span class="s4">using namespace </span><span class="s1">std</span><span class="s4">;</span>
+<span class="s4">class </span><span class="s1">Tweet {</span>
+<span class="s4">private</span><span class="s1">:</span>
+
+    <span class="s1">DSString entireTweet</span><span class="s4">;</span>
+    <span class="s0">//default set to false for tweets that come in without sentiment</span>
+    <span class="s4">int </span><span class="s1">id</span><span class="s4">;</span>
+    <span class="s4">int </span><span class="s1">sent</span><span class="s4">;</span>
+    <span class="s0">//used to analyze if a tweet is positive or negative</span>
+    <span class="s4">int </span><span class="s1">sentAnalysis</span><span class="s4">;</span>
+    <span class="s0">//used to depict if a tweet is a testing tweet or a training tweet;</span>
+    <span class="s4">bool </span><span class="s1">testing</span><span class="s4">;</span>
+<span class="s4">public</span><span class="s1">:</span>
+    <span class="s1">Tweet()</span><span class="s4">;</span>
+    <span class="s4">bool </span><span class="s1">checkSentiment()</span><span class="s4">;</span>
+    <span class="s4">int </span><span class="s1">getID(){</span><span class="s4">return this</span><span class="s1">-&gt;id</span><span class="s4">;</span><span class="s1">}</span>
+    <span class="s4">int </span><span class="s1">getSentAnalysis(){</span><span class="s4">return this</span><span class="s1">-&gt;sentAnalysis</span><span class="s4">;</span><span class="s1">}</span>
+    <span class="s4">int </span><span class="s1">getSent(){</span><span class="s4">return this</span><span class="s1">-&gt;sent</span><span class="s4">;</span><span class="s1">}</span>
+    <span class="s4">void </span><span class="s1">setID(</span><span class="s4">int </span><span class="s1">idin){</span><span class="s4">this</span><span class="s1">-&gt;id = idin</span><span class="s4">;</span><span class="s1">}</span>
+    <span class="s4">void </span><span class="s1">setSent(</span><span class="s4">int </span><span class="s1">sentin){</span><span class="s4">this</span><span class="s1">-&gt;sent = sentin</span><span class="s4">;</span><span class="s1">}</span>
+    <span class="s4">void </span><span class="s1">setTesting(</span><span class="s4">bool </span><span class="s1">testin){</span><span class="s4">this</span><span class="s1">-&gt;testing = testin</span><span class="s4">;</span><span class="s1">}</span>
+    <span class="s4">void </span><span class="s1">setTweet(DSString tweet) {</span><span class="s4">this</span><span class="s1">-&gt;entireTweet = tweet</span><span class="s4">;</span><span class="s1">}</span>
+
+
+    <span class="s4">void </span><span class="s1">createWords(words)</span><span class="s4">;</span>
+
+    <span class="s4">void </span><span class="s1">toUpper()</span><span class="s4">;</span>
+<span class="s1">}</span><span class="s4">;</span>
+
+
+<span class="s2">#endif </span><span class="s0">//PA01_SENTIMENT_TWEET_H</span>
+</pre>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<html>
+<head>
+<title>DSString.h</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #808080;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #bbb529;}
+.s3 { color: #6a8759;}
+.s4 { color: #cc7832;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+DSString.h</font>
+</center></td></tr></table>
+<pre><span class="s0">//</span>
+<span class="s0">// Created by Mark Fontenot on 6/2/2021.</span>
+<span class="s0">//</span>
+
+<span class="s2">#ifndef </span><span class="s1">PA01_SENTIMENT_DSSTRING_H</span>
+<span class="s2">#define </span><span class="s1">PA01_SENTIMENT_DSSTRING_H</span>
+
+<span class="s2">#include </span><span class="s3">&lt;iostream&gt;</span>
+<span class="s2">#include </span><span class="s3">&lt;cstring&gt;</span>
+
+<span class="s4">class </span><span class="s1">DSString{</span>
+
+<span class="s4">private</span><span class="s1">:</span>
+    <span class="s4">char</span><span class="s1">* data</span><span class="s4">;</span>
+    <span class="s4">int </span><span class="s1">length</span><span class="s4">;</span>
+
+    <span class="s0">/** 
+     *  You will need to add some private data members here. 
+     *  This is up to your discretion.  However, we **strongly** 
+     *  encourage you to implement your string class as a wrapper 
+     *  for typical null-terminated c-strings.  In doing this, you 
+     *  may use c-sting functions in the methods in this class such 
+     *  as: 
+     *    * strlen(...) 
+     *    * strcpy(...) 
+     *    * strcmp(...) 
+     *    * strncpy(...) 
+     *    * strcat(...) 
+     *    * strncat(...) 
+     * 
+     *    A quick google search will return plenty of references on 
+     *    the c-string functions. 
+     **/</span>
+
+
+<span class="s4">public</span><span class="s1">:</span>
+
+    <span class="s0">/** 
+     * Constructors and destructor 
+     * 
+     * Make sure you do proper memory management. 
+     **/</span>
+    <span class="s1">DSString()</span><span class="s4">;</span>
+    <span class="s1">DSString(</span><span class="s4">const char</span><span class="s1">*)</span><span class="s4">;</span>
+    <span class="s1">DSString(</span><span class="s4">const </span><span class="s1">DSString&amp;)</span><span class="s4">;</span>
+    <span class="s1">~DSString()</span><span class="s4">;</span>
+
+    <span class="s0">/** 
+     * Overloaded Assignment Operators 
+     */</span>
+    <span class="s1">DSString&amp; </span><span class="s4">operator</span><span class="s1">= (</span><span class="s4">const char</span><span class="s1">*)</span><span class="s4">;</span>
+    <span class="s1">DSString&amp; </span><span class="s4">operator</span><span class="s1">= (</span><span class="s4">const </span><span class="s1">DSString&amp;)</span><span class="s4">;</span>
+
+    <span class="s0">/** 
+     * Overloaded non-modifying string concat 
+     * @return 
+     */</span>
+    <span class="s1">DSString </span><span class="s4">operator</span><span class="s1">+ (</span><span class="s4">const </span><span class="s1">DSString&amp;)</span><span class="s4">;</span>
+
+    <span class="s0">/** 
+     * Standard relational operators.  Feel free to add additional. 
+     * 
+     * Note that for each operator, there are two overloaded versions: 
+     *    one that takes a DSString object 
+     *    one that takes a null-terminated c-string 
+     * 
+     **/</span>
+
+    <span class="s4">bool operator</span><span class="s1">== (</span><span class="s4">const char</span><span class="s1">*)</span><span class="s4">;</span>
+    <span class="s4">bool operator</span><span class="s1">== (</span><span class="s4">const </span><span class="s1">DSString&amp;)</span><span class="s4">;</span>
+    <span class="s4">bool operator</span><span class="s1">&gt; (</span><span class="s4">const </span><span class="s1">DSString&amp;)</span><span class="s4">;</span>
+    <span class="s4">bool operator</span><span class="s1">&gt; (</span><span class="s4">const char</span><span class="s1">*)</span><span class="s4">;</span>
+<span class="s0">//    bool operator&lt; (const DSString&amp;);</span>
+<span class="s0">//    bool operator&lt; (const char*);</span>
+
+    <span class="s0">/** 
+     * Subscript operator to access a particular character of a DSString object 
+     * @return the character requested by reference 
+     */</span>
+    <span class="s4">char</span><span class="s1">&amp; </span><span class="s4">operator</span><span class="s1">[] (</span><span class="s4">const int</span><span class="s1">)</span><span class="s4">;</span>
+
+    <span class="s0">/** 
+     * getLength() returns the number (count) of characters in the string. 
+     **/</span>
+    <span class="s4">int </span><span class="s1">getLength()</span><span class="s4">;</span>
+
+    <span class="s0">/** 
+     * The substring method returns a string object that contains a 
+     * sequence of characters from this string object. 
+     * 
+     * param start - the index of where to start 
+     * param numChars - the number (count) of characters to copy into 
+     *    the substring 
+     * @return a DSString object containing the requested substring 
+     **/</span>
+    <span class="s1">DSString substring(</span><span class="s4">int </span><span class="s1">start</span><span class="s4">, int </span><span class="s1">numChars)</span><span class="s4">;</span>
+
+    <span class="s0">/** 
+     * the c_str function returns a null-terminated c-string holding the 
+     * contents of this object. 
+     **/</span>
+    <span class="s4">char</span><span class="s1">* c_str()</span><span class="s4">;</span>
+
+    <span class="s0">/** 
+     * Overloaded stream insertion operator to print the contents of this 
+     * string to the output stream in the first argument. 
+     **/</span>
+    <span class="s4">friend </span><span class="s1">std::ostream&amp; </span><span class="s4">operator</span><span class="s1">&lt;&lt; (std::ostream&amp;</span><span class="s4">, const </span><span class="s1">DSString&amp;)</span><span class="s4">;</span>
+
+    <span class="s0">//You are free to add more functionality to the class.  For example,</span>
+    <span class="s0">//you may want to add a find(...) function that will search for a</span>
+    <span class="s0">//string within a string.  (just an example)</span>
+    <span class="s0">//</span>
+    <span class="s0">//Further - you will be able to update and modify this class as the</span>
+    <span class="s0">//semester progresses.</span>
+    <span class="s4">char </span><span class="s1">getChar(</span><span class="s4">int </span><span class="s1">i) {</span><span class="s4">return </span><span class="s1">data[i]</span><span class="s4">;</span><span class="s1">}</span>
+
+    <span class="s4">int </span><span class="s1">toInt()</span><span class="s4">;</span>
+    <span class="s4">void </span><span class="s1">toUpper()</span><span class="s4">;</span>
+
+    <span class="s4">void </span><span class="s1">printWord()</span><span class="s4">;</span>
+<span class="s1">}</span><span class="s4">;</span>
+
+
+
+<span class="s2">#endif </span><span class="s0">//PA01_SENTIMENT_DSSTRING_H</span>
+</pre>
+</body>
+</html>

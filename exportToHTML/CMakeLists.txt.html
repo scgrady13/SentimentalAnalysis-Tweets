@@ -1,0 +1,50 @@
+<html>
+<head>
+<title>CMakeLists.txt</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #a9b7c6;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #6a8759;}
+.s3 { color: #808080;}
+.s4 { color: #cc7832;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+CMakeLists.txt</font>
+</center></td></tr></table>
+<pre><span class="s0">cmake_minimum_required</span><span class="s1">(</span><span class="s2">VERSION 3.15</span><span class="s1">)</span>
+<span class="s0">project</span><span class="s1">(</span><span class="s2">pa01_sentiment</span><span class="s1">)</span>
+
+<span class="s0">set</span><span class="s1">(</span><span class="s2">CMAKE_CXX_STANDARD 17</span><span class="s1">)</span>
+
+<span class="s3">##########################################</span>
+<span class="s3"># Students, edit the items below.  In the quotes,</span>
+<span class="s3"># put the names of the input files as they should appear</span>
+<span class="s3"># in the argv param to main.</span>
+<span class="s3"># Example:</span>
+<span class="s3">#   set (input01 &quot;train_data.csv&quot;)</span>
+<span class="s3">#   set (input02 &quot;train_target.csv&quot;)</span>
+<span class="s3"># etc....</span>
+<span class="s3"># if you need more, add them here and in the foreach stmt below.</span>
+<span class="s0">set </span><span class="s1">(</span><span class="s2">input01 </span><span class="s1">&quot;</span><span class="s2">data/train_dataset_20k.csv</span><span class="s1">&quot;)</span>
+<span class="s0">set </span><span class="s1">(</span><span class="s2">input02 </span><span class="s1">&quot;</span><span class="s2">data/test_dataset_10k.csv</span><span class="s1">&quot;)</span>
+<span class="s0">set </span><span class="s1">(</span><span class="s2">input03 </span><span class="s1">&quot;</span><span class="s2">data/test_dataset_sentiment_10k.csv</span><span class="s1">&quot;)</span>
+
+<span class="s3">#</span>
+<span class="s3">##########################################</span>
+
+<span class="s3"># Copy data files to build dir</span>
+<span class="s4">foreach</span><span class="s1">(</span><span class="s2">file IN LISTS input01 input02 input03</span><span class="s1">)</span>
+    <span class="s0">configure_file</span><span class="s1">(</span><span class="s4">${</span><span class="s2">file</span><span class="s4">} ${</span><span class="s2">file</span><span class="s4">} </span><span class="s2">COPYONLY</span><span class="s1">)</span>
+<span class="s4">endforeach</span><span class="s1">()</span>
+
+<span class="s3"># Create the executable for sorting</span>
+<span class="s0">add_executable</span><span class="s1">(</span><span class="s2">pa01_sentiment main.cpp DSString.cpp DSString.h Tweet.h Tweet.cpp TweetSet.h TweetSet.cpp Words.h Words.cpp</span><span class="s1">)</span>
+
+</pre>
+</body>
+</html>

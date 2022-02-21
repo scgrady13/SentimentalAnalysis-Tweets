@@ -1,0 +1,196 @@
+<html>
+<head>
+<title>DSString.cpp</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #808080;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #bbb529;}
+.s3 { color: #6a8759;}
+.s4 { color: #cc7832;}
+.s5 { color: #6897bb;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+DSString.cpp</font>
+</center></td></tr></table>
+<pre><span class="s0">//</span>
+<span class="s0">// Created by mark on 6/2/2021.</span>
+<span class="s0">//</span>
+
+<span class="s2">#include </span><span class="s3">&quot;DSString.h&quot;</span>
+<span class="s4">using namespace </span><span class="s1">std</span><span class="s4">;</span>
+<span class="s1">DSString::DSString() {</span>
+    <span class="s1">data = NULL</span><span class="s4">;</span>
+    <span class="s1">length = </span><span class="s5">0</span><span class="s4">;</span>
+<span class="s1">}</span>
+
+<span class="s1">DSString::DSString(</span><span class="s4">const char </span><span class="s1">*str) {</span>
+    <span class="s0">//creates new data on the heap and copies str into it</span>
+    <span class="s1">data = </span><span class="s4">new char</span><span class="s1">[strlen(str) + </span><span class="s5">1</span><span class="s1">]</span><span class="s4">;</span>
+    <span class="s1">length = strlen(str)</span><span class="s4">;</span>
+    <span class="s1">strcpy(data</span><span class="s4">, </span><span class="s1">str)</span><span class="s4">;</span>
+    <span class="s1">toUpper()</span><span class="s4">;</span>
+<span class="s1">}</span>
+
+<span class="s1">DSString::DSString(</span><span class="s4">const </span><span class="s1">DSString &amp;str) {</span>
+    <span class="s0">//creates a new data on the heap and copys the data from str into it</span>
+    <span class="s1">data = </span><span class="s4">new char</span><span class="s1">[strlen(str.data) + </span><span class="s5">1</span><span class="s1">]</span><span class="s4">;</span>
+    <span class="s1">length = strlen(str.data)</span><span class="s4">;</span>
+    <span class="s1">strcpy(data</span><span class="s4">, </span><span class="s1">str.data)</span><span class="s4">;</span>
+    <span class="s1">toUpper()</span><span class="s4">;</span>
+<span class="s1">}</span>
+
+<span class="s1">DSString::~DSString() {</span>
+    <span class="s0">//deletes data off the heap</span>
+    <span class="s4">delete</span><span class="s1">[] data</span><span class="s4">;</span>
+<span class="s1">}</span>
+
+<span class="s1">DSString &amp;DSString::</span><span class="s4">operator</span><span class="s1">=(</span><span class="s4">const char </span><span class="s1">*str) {</span>
+    <span class="s0">//checks if either are a blank &quot;String&quot;</span>
+    <span class="s0">//if so returns a blank &quot;String&quot;</span>
+    <span class="s4">if</span><span class="s1">(str == </span><span class="s4">nullptr </span><span class="s1">|| strlen(str) == </span><span class="s5">0</span><span class="s1">) {</span>
+        <span class="s1">data = </span><span class="s4">nullptr;</span>
+        <span class="s4">return </span><span class="s1">*</span><span class="s4">this;</span>
+    <span class="s1">}</span>
+    <span class="s0">//Other wise delete the original data</span>
+    <span class="s0">//create new data on the heap</span>
+    <span class="s0">//copys str to data and returns</span>
+    <span class="s4">delete</span><span class="s1">[]data</span><span class="s4">;</span>
+    <span class="s1">data = </span><span class="s4">new char</span><span class="s1">(strlen(str) + </span><span class="s5">1</span><span class="s1">)</span><span class="s4">;</span>
+    <span class="s1">strcpy(data</span><span class="s4">, </span><span class="s1">str)</span><span class="s4">;</span>
+    <span class="s4">return </span><span class="s1">*</span><span class="s4">this;</span>
+<span class="s1">}</span>
+
+<span class="s1">DSString &amp;DSString::</span><span class="s4">operator</span><span class="s1">=(</span><span class="s4">const </span><span class="s1">DSString &amp;str) {</span>
+    <span class="s0">//if both are a not a null ptr delete data</span>
+    <span class="s4">if</span><span class="s1">(</span><span class="s4">this </span><span class="s1">!= </span><span class="s4">nullptr </span><span class="s1">&amp;&amp; data != </span><span class="s4">nullptr</span><span class="s1">){</span>
+        <span class="s4">delete</span><span class="s1">[] data</span><span class="s4">;</span>
+    <span class="s1">}</span>
+    <span class="s0">//then if both are not a nullptr and the &quot;String&quot; in str is not</span>
+    <span class="s0">//create new data on heap and copy data from str into new data</span>
+
+    <span class="s4">if</span><span class="s1">(</span><span class="s4">this </span><span class="s1">!= </span><span class="s4">nullptr </span><span class="s1">&amp;&amp; str.data != </span><span class="s4">nullptr</span><span class="s1">){</span>
+        <span class="s1">data = </span><span class="s4">new char</span><span class="s1">[strlen(str.data) + </span><span class="s5">1</span><span class="s1">]</span><span class="s4">;</span>
+        <span class="s1">strcpy(data</span><span class="s4">, </span><span class="s1">str.data)</span><span class="s4">;</span>
+    <span class="s1">}</span>
+    <span class="s4">return </span><span class="s1">*</span><span class="s4">this;</span>
+<span class="s1">}</span>
+
+<span class="s1">DSString DSString::</span><span class="s4">operator</span><span class="s1">+(</span><span class="s4">const </span><span class="s1">DSString &amp;str) {</span>
+    <span class="s0">//DSString used to hold both strings combined</span>
+    <span class="s1">DSString buffer</span><span class="s4">;</span>
+    <span class="s0">//sizes a new char* to the size of this DSString and the passed in one + 1</span>
+
+    <span class="s1">buffer.data = </span><span class="s4">new char</span><span class="s1">[strlen(data) + strlen(str.data) + </span><span class="s5">1</span><span class="s1">]</span><span class="s4">;</span>
+    <span class="s0">//copies data from this DSString into buffer first</span>
+    <span class="s0">//then combines the data from str passed in</span>
+    <span class="s1">strcpy(buffer.data</span><span class="s4">, </span><span class="s1">data)</span><span class="s4">;</span>
+    <span class="s1">strcat(buffer.data</span><span class="s4">, </span><span class="s1">str.data)</span><span class="s4">;</span>
+    <span class="s0">//returns the combined &quot;Strings&quot;</span>
+    <span class="s4">return </span><span class="s1">buffer</span><span class="s4">;</span>
+<span class="s1">}</span>
+
+<span class="s4">bool </span><span class="s1">DSString::</span><span class="s4">operator</span><span class="s1">==(</span><span class="s4">const char </span><span class="s1">*str) {</span>
+
+    <span class="s0">//checks if either string is blank or has a size of 0 if so they must be the same return true</span>
+    <span class="s4">if</span><span class="s1">((data == </span><span class="s4">nullptr </span><span class="s1">|| strlen(data) == </span><span class="s5">0</span><span class="s1">) &amp;&amp; (str == </span><span class="s4">nullptr </span><span class="s1">|| strlen(str) == </span><span class="s5">0</span><span class="s1">)) </span><span class="s4">return true;</span>
+    <span class="s0">//uses strcmp function to check the strings, if strcmp is true they are the same string, return true</span>
+    <span class="s4">if</span><span class="s1">(strcmp(data</span><span class="s4">,</span><span class="s1">str) == </span><span class="s5">0</span><span class="s1">) </span><span class="s4">return true;</span>
+    <span class="s0">//if anything else happens return false since they can not be equal</span>
+    <span class="s4">return false;</span>
+<span class="s1">}</span>
+
+<span class="s4">bool </span><span class="s1">DSString::</span><span class="s4">operator</span><span class="s1">==(</span><span class="s4">const </span><span class="s1">DSString &amp;str) {</span>
+
+    <span class="s0">//checks if either string is blank or has a size of 0 if so they must be the same return true</span>
+    <span class="s4">if</span><span class="s1">((data == </span><span class="s4">nullptr </span><span class="s1">|| strlen(data) == </span><span class="s5">0</span><span class="s1">) &amp;&amp; (str.data == </span><span class="s4">nullptr </span><span class="s1">|| strlen(str.data) == </span><span class="s5">0</span><span class="s1">)) </span><span class="s4">return true;</span>
+    <span class="s0">//uses strcmp function to check the strings, if strcmp is true they are the same string, return true</span>
+    <span class="s4">if</span><span class="s1">(strcmp(data</span><span class="s4">,</span><span class="s1">str.data) == </span><span class="s5">0</span><span class="s1">) </span><span class="s4">return true;</span>
+    <span class="s0">//if anything else happens return false since they can not be equal</span>
+    <span class="s4">return false;</span>
+<span class="s1">}</span>
+
+<span class="s4">bool </span><span class="s1">DSString::</span><span class="s4">operator</span><span class="s1">&gt;(</span><span class="s4">const </span><span class="s1">DSString &amp;str) {</span>
+    <span class="s0">//if data empty return false</span>
+    <span class="s4">if</span><span class="s1">(data = </span><span class="s4">nullptr</span><span class="s1">) </span><span class="s4">return false;</span>
+    <span class="s0">//if data has a first character that does not match has a greater value then str.data return true</span>
+    <span class="s4">else if</span><span class="s1">(strcmp(data</span><span class="s4">, </span><span class="s1">str.data) &gt; </span><span class="s5">0</span><span class="s1">) </span><span class="s4">return true;</span>
+    <span class="s0">//if not return false</span>
+    <span class="s4">return false;</span>
+
+<span class="s1">}</span>
+<span class="s0">//bool DSString::operator&lt;(const DSString &amp;str) {</span>
+<span class="s0">//    if(data = nullptr) return false;</span>
+<span class="s0">//    else if(strcmp(data, str.data) &lt; 0) return true;</span>
+<span class="s0">//    return false;</span>
+<span class="s0">//}</span>
+
+<span class="s4">bool </span><span class="s1">DSString::</span><span class="s4">operator</span><span class="s1">&gt;(</span><span class="s4">const char </span><span class="s1">*str) {</span>
+    <span class="s0">//same as above, able to work on char*</span>
+    <span class="s4">if</span><span class="s1">(data = </span><span class="s4">nullptr</span><span class="s1">) </span><span class="s4">return false;</span>
+    <span class="s4">else if</span><span class="s1">(strcmp(data</span><span class="s4">, </span><span class="s1">str) &gt; </span><span class="s5">0</span><span class="s1">) </span><span class="s4">return true;</span>
+    <span class="s4">return false;</span>
+<span class="s1">}</span>
+<span class="s0">//bool DSString::operator&lt;(const char *str) {</span>
+<span class="s0">//    if(data = nullptr) return false;</span>
+<span class="s0">//    else if(strcmp(data, str) &lt; 0) return true;</span>
+<span class="s0">//    return false;</span>
+<span class="s0">//}</span>
+<span class="s0">//returns the character of a passed in int</span>
+<span class="s4">char </span><span class="s1">&amp;DSString::</span><span class="s4">operator</span><span class="s1">[](</span><span class="s4">const int </span><span class="s1">location) {</span>
+    <span class="s0">//checks if the location passed in is larger the string, if not returns the data at that location</span>
+    <span class="s4">if</span><span class="s1">(location &lt;= getLength()) </span><span class="s4">return </span><span class="s1">data[location]</span><span class="s4">;</span>
+    <span class="s4">return </span><span class="s1">data[location]</span><span class="s4">;</span>
+<span class="s1">}</span>
+
+<span class="s4">int </span><span class="s1">DSString::getLength() {</span><span class="s4">return this</span><span class="s1">-&gt;length</span><span class="s4">;</span><span class="s1">}</span>
+
+
+<span class="s1">DSString DSString::substring(</span><span class="s4">int </span><span class="s1">start</span><span class="s4">, int </span><span class="s1">numChars) {</span>
+    <span class="s0">//checks if empty if so returns a null</span>
+    <span class="s4">if </span><span class="s1">(data = </span><span class="s4">nullptr</span><span class="s1">) </span><span class="s4">return </span><span class="s3">&quot;&quot;</span><span class="s4">;</span>
+    <span class="s0">//creates buffer size of the string</span>
+    <span class="s4">char</span><span class="s1">* buffer = </span><span class="s4">new char</span><span class="s1">[strlen(data) + </span><span class="s5">1</span><span class="s1">]</span><span class="s4">;</span>
+    <span class="s0">//iterates over array starting at the character passed in at i</span>
+    <span class="s4">for</span><span class="s1">(</span><span class="s4">int </span><span class="s1">i = start</span><span class="s4">, </span><span class="s1">j = </span><span class="s5">0</span><span class="s4">; </span><span class="s1">i &lt; numChars</span><span class="s4">; </span><span class="s1">i++</span><span class="s4">, </span><span class="s1">j++){</span>
+        <span class="s1">buffer[j] = data[i]</span><span class="s4">;</span>
+    <span class="s1">}</span>
+    <span class="s0">//creates new DSString</span>
+    <span class="s1">DSString substring = buffer</span><span class="s4">;</span>
+    <span class="s0">//deletes the buffer</span>
+    <span class="s4">delete</span><span class="s1">[]buffer</span><span class="s4">;</span>
+    <span class="s4">return </span><span class="s1">substring</span><span class="s4">;</span>
+<span class="s1">}</span>
+
+<span class="s4">char </span><span class="s1">*DSString::c_str() {</span>
+    <span class="s4">return </span><span class="s1">data</span><span class="s4">;</span>
+<span class="s1">}</span>
+<span class="s4">int </span><span class="s1">DSString::toInt(){</span>
+    <span class="s4">if </span><span class="s1">(data = </span><span class="s4">nullptr</span><span class="s1">) </span><span class="s4">return </span><span class="s5">0</span><span class="s4">;</span>
+    <span class="s4">else return </span><span class="s1">atoi(data)</span><span class="s4">;</span>
+<span class="s1">}</span>
+
+<span class="s1">std::ostream &amp;</span><span class="s4">operator</span><span class="s1">&lt;&lt;(std::ostream &amp;send</span><span class="s4">, const </span><span class="s1">DSString &amp;str) {</span>
+    <span class="s4">return </span><span class="s1">send &lt;&lt; str.data</span><span class="s4">;</span>
+<span class="s1">}</span>
+
+<span class="s4">void </span><span class="s1">DSString::toUpper() {</span>
+    <span class="s4">for</span><span class="s1">(</span><span class="s4">int </span><span class="s1">i = </span><span class="s5">0</span><span class="s4">; </span><span class="s1">i &lt; length</span><span class="s4">; </span><span class="s1">i++){</span>
+        <span class="s4">if</span><span class="s1">(data[i] &gt;= </span><span class="s3">'a' </span><span class="s1">&amp;&amp; data[i] &lt;= </span><span class="s3">'z'</span><span class="s1">){</span>
+            <span class="s1">data[i] -= </span><span class="s5">32</span><span class="s4">;</span>
+        <span class="s1">}</span>
+    <span class="s1">}</span>
+<span class="s1">}</span>
+<span class="s4">void </span><span class="s1">DSString::printWord(){</span>
+    <span class="s4">for</span><span class="s1">(</span><span class="s4">int </span><span class="s1">i = </span><span class="s5">0</span><span class="s4">; </span><span class="s1">i &lt; getLength()</span><span class="s4">; </span><span class="s1">i++){</span>
+        <span class="s1">cout &lt;&lt; data[i]</span><span class="s4">;</span>
+    <span class="s1">}</span>
+    <span class="s1">cout &lt;&lt; endl</span><span class="s4">;</span>
+<span class="s1">}</span>
+</pre>
+</body>
+</html>

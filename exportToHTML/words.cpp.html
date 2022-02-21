@@ -1,0 +1,78 @@
+<html>
+<head>
+<title>words.cpp</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #808080;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #bbb529;}
+.s3 { color: #6a8759;}
+.s4 { color: #cc7832;}
+.s5 { color: #6897bb;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+words.cpp</font>
+</center></td></tr></table>
+<pre><span class="s0">//</span>
+<span class="s0">// Created by Sean Grady on 2/10/2022.</span>
+<span class="s0">//</span>
+
+<span class="s2">#include </span><span class="s3">&quot;words.h&quot;</span>
+
+<span class="s4">void </span><span class="s1">words::addWord(DSString word</span><span class="s4">, int </span><span class="s1">sent) {</span>
+    <span class="s0">// word.printWord();</span>
+
+    <span class="s0">//checks for the sentiment of each tweet then adds the word to the vector</span>
+    <span class="s4">if</span><span class="s1">(sent == </span><span class="s5">4</span><span class="s1">){</span>
+<span class="s0">//        for(int i = 0; i &lt; positiveW.size();i++){</span>
+<span class="s0">//            //checks if the word already exists, if it does increments the occurance of it</span>
+<span class="s0">//</span>
+<span class="s0">//            if(positiveW.at(i) == word) positiveC.at(i)++;</span>
+<span class="s0">//            else {</span>
+
+                <span class="s0">//if not adds the new word and sets frequency number to 1</span>
+                <span class="s1">positiveW.push_back(word)</span><span class="s4">;</span>
+                <span class="s1">positiveC.push_back(</span><span class="s5">1</span><span class="s1">)</span><span class="s4">;</span>
+<span class="s0">//            }</span>
+        <span class="s1">}</span>
+
+<span class="s0">//</span>
+<span class="s0">//        auto it=positive.begin();</span>
+<span class="s0">//        it = positive.find(word);</span>
+<span class="s0">//        if(it == positive.end()){</span>
+<span class="s0">//            positive.at(word)++;</span>
+<span class="s0">//        }</span>
+<span class="s0">//     positive.insert({word, 0});</span>
+
+    <span class="s0">//same as positive tweets but for negative tweets</span>
+    <span class="s4">if</span><span class="s1">(sent == </span><span class="s5">0</span><span class="s1">){</span>
+        <span class="s4">for</span><span class="s1">(</span><span class="s4">int </span><span class="s1">i = </span><span class="s5">0</span><span class="s4">; </span><span class="s1">i &lt; negativeW.size()</span><span class="s4">;</span><span class="s1">i++){</span>
+            <span class="s4">if</span><span class="s1">(positiveW.at(i) == word) negativeC.at(i)++</span><span class="s4">;</span>
+            <span class="s4">else </span><span class="s1">{</span>
+                <span class="s1">negativeW.push_back(word)</span><span class="s4">;</span>
+                <span class="s1">negativeC.push_back(</span><span class="s5">1</span><span class="s1">)</span><span class="s4">;</span>
+            <span class="s1">}</span>
+        <span class="s1">}</span>
+<span class="s0">//        cout &lt;&lt; word &lt;&lt; endl;</span>
+<span class="s0">//        auto it=negative.begin();</span>
+<span class="s0">//        it = negative.find(word);</span>
+<span class="s0">//        if(it == negative.end()){</span>
+<span class="s0">//            negative.at(word)++;</span>
+<span class="s0">//        }</span>
+<span class="s0">//     negative.insert({word, 0});</span>
+
+    <span class="s1">}</span>
+<span class="s1">}</span>
+
+<span class="s4">void </span><span class="s1">words::checkVectors() {</span>
+    <span class="s4">for</span><span class="s1">(</span><span class="s4">int </span><span class="s1">i = </span><span class="s5">0</span><span class="s4">; </span><span class="s1">i &lt; negativeC.size()</span><span class="s4">; </span><span class="s1">i++){</span>
+        <span class="s1">cout &lt;&lt; negativeC.at(i)</span><span class="s4">;</span>
+    <span class="s1">}</span>
+<span class="s1">}</span>
+</pre>
+</body>
+</html>

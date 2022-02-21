@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/cygdrive/c/Users/12013/Documents/GitHub/22s-2341-scgrady13/DSString.h
+iostream
+-
+cstring
+-
+
+/cygdrive/c/Users/12013/Documents/GitHub/22s-2341-scgrady13/Words.h
+DSString.h
+/cygdrive/c/Users/12013/Documents/GitHub/22s-2341-scgrady13/DSString.h
+vector
+-
+algorithm
+-
+
+/cygdrive/c/Users/12013/Documents/GitHub/22s-2341-scgrady13/words.cpp
+Words.h
+/cygdrive/c/Users/12013/Documents/GitHub/22s-2341-scgrady13/Words.h
+
